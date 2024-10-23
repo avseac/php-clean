@@ -1,0 +1,22 @@
+services:
+  apache:
+    build:
+      dockerfile: dockerfile
+    ports:
+      - 8080:80
+    volumes:
+      - type: bind
+        source: ./src
+        target: /var/www/html
+        bind:
+          create_host_path: true
+      - type: bind
+        source: ./logs
+        target: /var/log/apache2
+        bind:
+          create_host_path: true
+      - type: bind
+        source: ./cgi-bin
+        target: /usr/lib/cgi-bin
+        bind:
+          create_host_path: true

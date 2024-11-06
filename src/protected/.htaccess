@@ -1,4 +1,6 @@
 AuthType Basic
 AuthName "Password Protected"
 AuthUserFile /var/www/html/.htpasswd
-Require valid-user
+AuthGroupFile /var/www/html/.htgroup
+Require group VIP
+# Require valid-user
